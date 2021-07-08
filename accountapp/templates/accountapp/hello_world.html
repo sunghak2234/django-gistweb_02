@@ -2,34 +2,16 @@
 
 {% block content %}
 
+    <div style =" margin: 2rem; text-align : center" >
+            <h1> METHOD </h1>
 
-    <style>
-        .testing{
-            background-color: yellow;
-            height :48px;
-            width: 48px;
-            border-radius: .5rem;
-            margin:1.5rem;
-        }
-    </style>
+        <form action="/accounts/hello_world/" method="post" >
+            {% csrf_token %}
+            <input class="btn btn-dark rounded-pill px-4" type="submit" >
 
+        </form>
 
-
-
-    <div style =" height: 20rem; background-color: aqua;
-    border-radius:1rem; margin: 2rem;" >
-            <h1> 사랑이네 </h1>
-
-
-    <div class = testing style="display:inline-block">inline</div>
-    <div class = testing style="display:inline-block; width: 3rem; height:3rem;">inline</div>
-    <div class = testing style="display:inline-block; width: 3em; height:3em;">inline</div>
-    <div class = testing style="display:inline-block; width: 30%; height:30%;">inline</div>
-
-
-
-
-
-</div>
+            <h3>{{ text }}</h3>
+    </div>
 
 {% endblock %}

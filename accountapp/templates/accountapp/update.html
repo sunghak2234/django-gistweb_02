@@ -9,7 +9,7 @@
                 <h4>Update info</h4>
             </div>
             <div>
-                <form action="{% url 'accountapp:update' pk=target_user.ph %}" method="POST">
+                <form action="{% url 'accountapp:update' pk=target_user.pk %}" method="POST">
                    {% csrf_token %}
                    {% bootstrap_form form %}
                     <div class="m-5">

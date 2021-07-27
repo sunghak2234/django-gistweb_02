@@ -12,3 +12,8 @@ class ProfileCreateView(CreateView):
     form_class = ProfileCreationForm
     success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'profileapp/create.html'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user #유저를 식별하고, 저장?
+        return super().form_valid(form)
+        

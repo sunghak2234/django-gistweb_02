@@ -16,4 +16,3 @@ class ProfileCreateView(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user #유저를 식별하고, 저장?
         return super().form_valid(form)
-        

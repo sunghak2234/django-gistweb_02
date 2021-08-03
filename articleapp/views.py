@@ -1,3 +1,21 @@
-from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
-# Create your views here.
+from articleapp.forms import ArticleCreationForm
+from articleapp.models import Article
+
+
+
+
+class ArticleCreateView(CreateView):
+    class Meta:
+        model = Article
+        form_class = ArticleCreationForm
+        success_url = reverse_lazy('articleapp:list')
+        templates_name = 'articleapp/create.html'
+
+        def form_valid(self, form):
+            form.instance.writer = self.request.user
+            return super().form_valid(form)
+
+

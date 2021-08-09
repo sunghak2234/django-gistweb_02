@@ -5,12 +5,12 @@
 
     <style>
         .container div {
-          width: 280px;
+            width: 280px;
             box-shadow: 0 0 .5rem grey;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
             flex-direction: column;
         }
 
@@ -35,9 +35,10 @@
             </div>
 
         {% endfor %}
-
     </div>
-
+    <div class="text-center my-4">
+        {% include 'snippets/pagination.html' %}
+    </div>
     <script src="{% static 'js/magicgrid.js' %}"></script>
 
     <div class="text-center my-5">

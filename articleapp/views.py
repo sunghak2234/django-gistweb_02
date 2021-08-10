@@ -3,7 +3,6 @@ from django.urls import reverse_lazy, reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 from django.views.generic.edit import FormMixin
-
 from articleapp.decorators.decorators import article_ownership_required
 from articleapp.forms import ArticleCreationForm
 from articleapp.models import Article
@@ -41,7 +40,7 @@ class ArticleUpdateView(UpdateView):
     template_name = 'articleapp/update.html'
 
     def get_success_url(self):
-        return reverse('articleapp:detatil', kwargs={'pk':self.object.pk})
+        return reverse('articleapp:detail', kwargs={'pk':self.object.pk})
 
 
 @method_decorator(article_ownership_required, 'get')

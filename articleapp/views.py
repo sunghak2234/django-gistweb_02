@@ -56,4 +56,4 @@ class ArticleListView(ListView):
     model = Article
     context_object_name = 'article_list' # 게시글의 리스트를 의미, 여기에 모든 게시글의 게체가 담긴다
     template_name = 'articleapp/list.html'
-    paginate_by = 1 # 한 페이지에 20개의 게시글
+    paginate_by = 20 # 한 페이지에 20개의 게시글

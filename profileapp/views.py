@@ -19,11 +19,11 @@ class ProfileCreateView(CreateView):
     template_name = 'profileapp/create.html'
 
     def form_valid(self, form):
-        form.instance.user = self.request.user #유저를 식별하고, 저장?
+        form.instance.user = self.request.user
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('accountapp:detail', kwargs={'pk': self.object.user.pk}) # target profile 확보 -> 프라이머리 키 넘겨 받기
+        return reverse('accountapp:detail', kwargs={'pk': self.object.user.pk})
 
 
 

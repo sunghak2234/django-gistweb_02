@@ -12,3 +12,5 @@ class Article(models.Model):
     image = models.ImageField(upload_to='article/', null=True) # media 폴더
     content = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    like = models.IntegerField(default=0)

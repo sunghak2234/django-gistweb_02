@@ -8,6 +8,16 @@
         <div class="my-5">
             {#      제목, 글쓴이, 작성일      #}
             <h1 class="NNS_B">{{ target_article.title }}</h1>
+            <div class="my-3">
+                <a href="{% url 'likeapp:article_like' article_pk=target_article.pk %}"
+                   class="material-icons"
+                   style="vertical-align: middle; font-size: 1.4rem; color: #f77">
+                    favorite
+                </a>
+                <span style="vertical-align: middle; font-size: 1.2rem">
+                    {{ target_article.like }}
+                </span>
+            </div>
             <h3>{{ target_article.writer.profile.nickname }}</h3>
             <p>{{ target_article.created_at }}</p>
         </div>
@@ -51,13 +61,13 @@
                             {{ comment.content }}
                         </p>
                     </div>
-                         {% if comment.writer == user %}
-                    <div style="text-align: right">
-                        <a href="{% url 'commentapp:delete' pk=comment.pk %}"
-                           class="btn btn-danger rounded-pill px-5">
-                            Delete
-                        </a>
-                    </div>
+                    {% if comment.writer == user %}
+                        <div style="text-align: right">
+                            <a href="{% url 'commentapp:delete' pk=comment.pk %}"
+                               class="btn btn-danger rounded-pill px-5">
+                                Delete
+                            </a>
+                        </div>
                     {% endif %}
                 </div>
 

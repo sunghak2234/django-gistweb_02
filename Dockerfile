@@ -10,6 +10,11 @@ RUN pip install -r requirements.txt
 
 RUN pip install gunicorn
 
+RUN pip install bootstrap4
+
+RUN pip install django-bootstrap4
+
+
 RUN echo "SECRET_KEY=django-insecure-ymwh)3@pbsvbi3ak-1vv_ze%u^b$#dudl0qq^4j(#icb5=8-6" > .env
 
 RUN python manage.py collectstatic

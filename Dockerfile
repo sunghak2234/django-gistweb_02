@@ -8,12 +8,14 @@ WORKDIR /home/django-gistweb_02/
 
 RUN pip install -r requirements.txt
 
+RUN pip install gunicorn
+
 RUN echo "SECRET_KEY=django-insecure-ymwh)3@pbsvbi3ak-1vv_ze%u^b$#dudl0qq^4j(#icb5=8-6" > .env
 
 RUN python manage.py migrate
-pip install gunicon
+
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "gistweb_02.wsgi", "--bind", "0.0.0.0:8000"]
 
 

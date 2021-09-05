@@ -26,7 +26,7 @@ RUN python manage.py collectstatic
 
 EXPOSE 8000
 
-CMD ["bash", "-c",   "python manage.py migrate --settings=gistweb_02.settings.deploy && gunicorn gistweb_02.wsgi --env DJANGO_SETTINGS_MODULE=gistweb_02.settings.deploy --bind 0.0.0.0:8000"]
+CMD ["gunicorn", "gistweb_02.wsgi", "--bind", "0.0.0.0:8000"]
 
 
 
